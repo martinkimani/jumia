@@ -4,10 +4,14 @@ This project is a holder project which has two modules the backend and frontend.
 
 The project can be deployed as a fat jar or as a docker image.
 
+clone the project https://github.com/martinkimani/jumia.git
+
 ## Environment Variable
 
-The project requires one environment variable SQLITEDB_PATH whose value is the absolute path of the location of the sqlite database in the file system. 
+For running as a fat jar the project requires one environment variable SQLITEDB_PATH whose value is the absolute path of the location of the sqlite database in the file system. 
 e.g /home/martin/sqlite/sample.db
+
+Docker does not require the variable.
 
 ## Build Fat jar
 
