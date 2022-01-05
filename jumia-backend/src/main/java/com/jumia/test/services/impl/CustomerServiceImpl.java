@@ -34,14 +34,14 @@ public class CustomerServiceImpl implements ICustomerService{
         Predicate<Customer> filter_countries = customer -> country == null || customer.getCountry().equalsIgnoreCase(country);
         Predicate<Customer> filter_state = customer -> valid == null || customer.isValid() == valid;
         return all_customers.stream()
-                .map(customer -> getCountryCode(customer))
+                .map(customer -> validateCustomerPhoneNumber(customer))
                 .filter(filter_countries)
                 .filter(filter_state)
                 .sorted(sortedCustomers)
                 .collect(Collectors.toList());
     }
     
-    private Customer getCountryCode(Customer customer) {
+    private Customer validateCustomerPhoneNumber(Customer customer) {
         List<Country> all_countries = getCountries();
         for (Country all_country : all_countries) {
             var regex = all_country.getCountry_regex();
